@@ -1,0 +1,6 @@
+{
+  "name": "DoubleU - Artist Portfolio & SEO Hub",
+  "description": "The official high-fidelity digital portal and SEO schema optimization hub for musical artist DoubleU (William Kirby Hartman). Optimized for Google Knowledge Panel generation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
