@@ -11,6 +11,7 @@ import AdminLoginGate from './AdminLoginGate';
 import ArtistToolkitPanel from './ArtistToolkitPanel';
 import SearchConsolePanel from './SearchConsolePanel';
 import { KnowledgePanelChecklistPanel, MetaCtrGeneratorPanel, SchemaValidatorPanel } from './SEOPanels';
+import MusicAnalyticsPanel from './MusicAnalyticsPanel';
 
 interface AdminHubViewProps {
   pages: Page[];
@@ -22,7 +23,7 @@ interface AdminHubViewProps {
   onNavigate: (route: string) => void;
 }
 
-type AdminTab = 'discography' | 'pages' | 'entities' | 'schema' | 'seo';
+type AdminTab = 'discography' | 'pages' | 'entities' | 'schema' | 'seo' | 'analytics';
 
 export default function AdminHubView({ 
   pages, 
@@ -767,7 +768,8 @@ export default function AdminHubView({
             { id: 'pages', label: 'Site Nodes Registry', icon: <Layers size={14} />, desc: 'Custom Pages & Content' },
             { id: 'entities', label: 'Knowledge Graph Cards', icon: <Database size={14} />, desc: 'Schema.org Authority Cards' },
             { id: 'schema', label: 'Schema Health Audit', icon: <SearchCode size={14} />, desc: 'Structured Data Diagnostics' },
-            { id: 'seo', label: 'SEO RANKING Engine', icon: <Globe size={14} />, desc: 'Search Rankings & Crawler Logs' }
+            { id: 'seo', label: 'SEO RANKING Engine', icon: <Globe size={14} />, desc: 'Search Rankings & Crawler Logs' },
+            { id: 'analytics', label: 'Music Analytics', icon: <BarChart2 size={14} />, desc: 'Streams, Reach & Royalties' }
           ].map(tab => (
             <button
               key={tab.id}
@@ -2787,6 +2789,10 @@ ${catalog.map(song => `  <url>
                 </div>
               )}
           </div>
+        )}
+
+        {activeTab === 'analytics' && (
+          <MusicAnalyticsPanel catalog={catalog} />
         )}
         </div>
       </div>
